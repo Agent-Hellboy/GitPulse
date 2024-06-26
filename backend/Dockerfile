@@ -1,4 +1,4 @@
-# Dockerfile
+# backend/Dockerfile
 
 FROM python:3.10-slim
 
@@ -13,5 +13,7 @@ COPY . /code/
 
 COPY entrypoint.sh /code/entrypoint.sh
 RUN chmod +x /code/entrypoint.sh
+
+WORKDIR /code/gitpulse
 
 ENTRYPOINT ["/code/entrypoint.sh"]

@@ -1,8 +1,10 @@
-# requirements.txt
-Django>=3.2,<4.0
-djangorestframework
+django
 django-allauth
+djangorestframework
+PyJWT
+psycopg2-binary
 django-environ
 celery
 redis
 requests
+cryptography

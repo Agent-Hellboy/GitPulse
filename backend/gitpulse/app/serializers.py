@@ -1,4 +1,4 @@
-# app_name/serializers.py
+# app/serializers.py
 
 from rest_framework import serializers
 from .models import Repository
