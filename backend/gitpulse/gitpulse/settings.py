@@ -3,7 +3,7 @@
 import os
 from pathlib import Path
 import environ
-print("inside settings")
+
 env = environ.Env()
 environ.Env.read_env()
 
@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = env.bool('DEBUG', default=True)
-print("debug",DEBUG)
+
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 INSTALLED_APPS = [
@@ -66,8 +66,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'gitpulse.wsgi.application'
 ASGI_APPLICATION = 'gitpulse.asgi.application'
 
+# settings.py
+
 DATABASES = {
-    'default': env.db(),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_db_name',
+        'USER': 'your_db_user',
+        'PASSWORD': 'your_db_password',
+        'HOST': 'localhost',  # This should match the service name in your Docker Compose file
+        'PORT': '5432',
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [

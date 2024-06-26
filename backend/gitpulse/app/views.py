@@ -8,3 +8,8 @@ class RepositoryViewSet(viewsets.ModelViewSet):
     queryset = Repository.objects.all()
     serializer_class = RepositorySerializer
 
+
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("Welcome to GitPulse! This is the root endpoint.")
